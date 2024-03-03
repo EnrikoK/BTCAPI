@@ -27,7 +27,8 @@ Insert amount in EUR to create a new BTC transaction
 ```
 [GET] /show-balance
 Returns the balance in BTC and EUR
-200 example:
+
+response 200 example:
 ```
 {
 	"balance_BTC": 2.0,
@@ -36,7 +37,8 @@ Returns the balance in BTC and EUR
 ```
 
 [GET] /all-transactions
-200 example:
+
+response 200 example:
 ```
 [
 	{
