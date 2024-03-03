@@ -1,6 +1,6 @@
 AdCash Backend Services & API Internship Assignment
 
-Small REST API built in Python using the built in Sqlite3 database, that comes with python
+Small REST API built in Python using the built in Sqlite3 database, that comes with python, Flask
 and SQLAlchemy for ORM. 
 
 Install the required packages
