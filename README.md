@@ -9,6 +9,7 @@ python run.py
 ```
 
 The API has 4 endponts:
+
 [POST] /create-dummies
 Creates an unused transaction to the database
 ```
