@@ -30,6 +30,8 @@ The API has 4 endponts:
 
 [POST] /create-dummies
 Creates an unused transaction to the database
+
+Request body example:
 ```
 {
     "amount" : 12.345
@@ -38,15 +40,17 @@ Creates an unused transaction to the database
 
 [POST] /create-transaction
 Insert amount in EUR to create a new BTC transaction
+
+Request body example:
 ```
 {
-    "amount":value
+    "amount":999
 }
 ```
 [GET] /show-balance
 Returns the balance in BTC and EUR
 
-response 200 example:
+Response 200 example:
 ```
 {
 	"balance_BTC": 2.0,
@@ -56,7 +60,7 @@ response 200 example:
 
 [GET] /all-transactions
 
-response 200 example:
+Response 200 example:
 ```
 [
 	{
