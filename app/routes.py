@@ -1,4 +1,4 @@
-from flask import jsonify, request,abort
+from flask import jsonify, request ,abort
 from app import app, db
 from app.models import Transactions
 import requests
@@ -7,7 +7,6 @@ import requests
 @app.route('/all-transactions', methods=['GET'])
 def get_users():
     transactions = Transactions.query.all()
-    print(transactions)
     return jsonify([{"hash":t.hash, "spent":t.spent, "amount":t.amount, "created":t.created_at} for t in transactions])
 
 # Creates transactions
@@ -15,7 +14,10 @@ def get_users():
 def create_transaction():
     if(request.is_json):
         try:
-            amount = request.get_json()['amount']
+            try:
+                amount = float(request.get_json()['amount'])
+            except:
+                return jsonify({"message":"The amount must be a floating point number"}), 400
             
             # Get the exchange rate 
             get_exchange = requests.get('http://api-cryptopia.adca.sh/v1/prices/ticker').json()
@@ -78,9 +80,14 @@ def show_balance():
 @app.route('/create-dummies', methods=['POST'])
 def create_dummies():
     if(request.is_json):
-        new_transaction = Transactions(request.get_json()['amount'])
-        db.session.add(new_transaction)
-        db.session.commit()
-        return '', 200
+        try:
+            amount = request.get_json()['amount']
+            if(amount <= 0): return jsonify({"message":"Amount must be greater than 0"}), 400
+            new_transaction = Transactions(amount)
+            db.session.add(new_transaction)
+            db.session.commit()
+            return '', 200
+        except:
+            return jsonify({"message":"Wrong input type for value 'amount', use float"}), 400
     else:
-        abort(400)
+        return abort(400)

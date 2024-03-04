@@ -2,17 +2,29 @@ AdCash Backend Services & API Internship Assignment
 
 Small REST API built in Python using the built in Sqlite3 database, that comes with python, Flask
 and SQLAlchemy for ORM. As the API uses the built in Sqlite3 database, no further configuration is
-needed for that. Just install the dependencies and run the API. 
+needed for that. Just install the dependencies and run the API. I also wrote some tests although 
+I am not so proficient at it.
 
 Install the required packages
+
 ```
 pip install -r requirements.txt
 ```
 
+
 To run the app cd into the folder and run:
+
 ```
 python run.py
 ```
+
+
+If you want to run the unit tests run:
+
+```
+python test.py
+```
+
 
 The API has 4 endponts:
 
