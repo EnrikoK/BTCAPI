@@ -1,4 +1,4 @@
-AdCash Backend Services & API Internship Assignment, Enriko Kroon
+AdCash Backend Services & API Internship Assignment
 
 Small REST API built in Python using the built in Sqlite3 database, that comes with python, Flask
 and SQLAlchemy for ORM. As the API uses the built in Sqlite3 database, no further configuration is
@@ -44,7 +44,7 @@ Insert amount in EUR to create a new BTC transaction
 Request body example:
 ```
 {
-    "amount":999
+    "amount":999.1
 }
 ```
 [GET] /show-balance
